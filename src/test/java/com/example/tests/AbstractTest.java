@@ -1,5 +1,6 @@
 package com.example.tests;
 
+import com.example.listener.TestListener;
 import com.example.util.Config;
 import com.example.util.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -14,10 +15,12 @@ import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
+@Listeners(TestListener.class)
 public class AbstractTest {
     public static final Logger log = LoggerFactory.getLogger(AbstractTest.class);
     protected WebDriver driver;
@@ -25,11 +28,6 @@ public class AbstractTest {
     @BeforeTest
     public void setDriver(ITestContext ctx) throws MalformedURLException {
         //driver setup
-//        if (Boolean.parseBoolean(Config.get(Constants.GRID_ENABLED))){
-//            this.driver = getRemoteDriver();
-//        }else{
-//            this.driver = getLocalDriver();
-//        }
         this.driver = Boolean.parseBoolean(Config.get(Constants.GRID_ENABLED)) ? getRemoteDriver() : getLocalDriver();
         ctx.setAttribute(Constants.DRIVER, this.driver);
         driver.manage().window().maximize();

@@ -15,6 +15,7 @@
         <testng.version>7.8.0</testng.version>
         <webdriver.manager.version>5.5.3</webdriver.manager.version>
         <selenium.java.version>4.11.0</selenium.java.version>
+
     </properties>
     <dependencies>
 
@@ -38,6 +39,36 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- To deserialize json into Java object or vice versa -->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.15.2</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <file>src/test/resources/test-suites/flight-reservation-json.xml</file>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>

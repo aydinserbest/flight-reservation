@@ -11,5 +11,4 @@ public class Constants {
     public static final String DRIVER = "driver";
 
     public static final String FLIGHT_RESERVATION_URL = "flightReservation.url";
-    public static final String VENDOR_PORTAL_URL = "vendorPortal.url";
 }

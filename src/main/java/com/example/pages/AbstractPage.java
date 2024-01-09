@@ -115,6 +115,8 @@ public abstract class AbstractPage {
     protected WebElement waitUntilVisible(final WebElement element) {
         return getWebDriverWait().until(ExpectedConditions.visibilityOf(element));
     }
+    public abstract boolean isAt();
+
 }
 /*
     These methods abstract the underlying Selenium WebDriver details,
