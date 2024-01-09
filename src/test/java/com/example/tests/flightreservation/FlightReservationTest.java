@@ -1,6 +1,5 @@
 package com.example.tests.flightreservation;
 
-import com.example.listener.TestListener;
 import com.example.pages.flightreservation.RegistrationPage;
 import com.example.tests.AbstractTest;
 import com.example.tests.flightreservation.model.FlightReservationTestData;
@@ -21,9 +20,7 @@ public class FlightReservationTest extends AbstractTest {
     @Parameters("testDataPath")
     public void setParameters(String testDataPath){
         log.info("Test data path received: " + testDataPath);
-
         this.testData = JsonUtil.getTestData(testDataPath, FlightReservationTestData.class);
-
     }
     @Test
     public void userRegistration(){

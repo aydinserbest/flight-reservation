@@ -3,7 +3,7 @@
     <test name="passengers-count-1">
         <parameter name="testDataPath" value="test-data/passenger-1.json"/>
         <classes>
-            <class name="com.example.tests.flightreservation.FlightReservationTest"></class>
+            <class name="com.example.tests.flightreservation.FlightReservationTest"/>
         </classes>
     </test>
 </suite>
